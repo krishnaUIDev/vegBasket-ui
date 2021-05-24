@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
-  background: #fff;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 0.25rem 0.5rem rgba(26, 26, 44, 0.05);

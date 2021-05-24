@@ -124,18 +124,8 @@
   font-size: 1.05rem;
 }
 
-@media (max-width: 850px) {
-  .product {
-    width: calc(100% / 2 - 2rem);
-  }
-}
-
 @media (max-width: 550px) {
   .products {
     margin: 0;
-  }
-  .product {
-    width: calc(100% - 3rem);
-    margin: 0.75rem 1.5rem;
   }
 }

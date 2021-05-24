@@ -18,6 +18,12 @@ const Container = styled(motion.div)(({ theme }) => ({
   display: "flex",
   flexFlow: "column nowrap",
   transition: "transform 0.2s, box-shadow 0.2s",
+  [theme.breakpoints.down("md")]: {
+    width: "calc(100% / 2 - 2rem)",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "calc(100% - 3rem)",
+  },
 }));
 
 function Product({ item, id }) {

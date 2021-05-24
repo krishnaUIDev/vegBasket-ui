@@ -2,7 +2,7 @@ import React from "react";
 import "./Bookmarks.css";
 import { useStateValue } from "../StateProvider";
 import Product from "./Product";
-import emptyBookmarks from "../assets/emptyBookmarks.svg";
+import emptyBookmarks from "../assets/boomark.svg";
 import { Link } from "react-router-dom";
 
 function Bookmarks() {

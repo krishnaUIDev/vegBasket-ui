@@ -8,7 +8,7 @@ import { getCartTotal, getTotalItems } from "../reducer";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { errorAnim } from "../util";
-import emptyCart from "../assets/emptyCart.svg";
+import emptyCart from "../assets/emptyCart1.svg";
 
 function Cart() {
   const [{ user, cart }] = useStateValue();

@@ -1,4 +1,5 @@
 import React from "react";
+import { styled } from "@material-ui/core/styles";
 import "./CartItem.css";
 import TextTruncate from "react-text-truncate";
 import RemoveShoppingCartRoundedIcon from "@material-ui/icons/RemoveShoppingCartRounded";
@@ -6,6 +7,10 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { motion } from "framer-motion";
 import { errorAnim } from "../util";
+
+const Container = styled(motion.div)(({ theme }) => ({
+  background: theme.palette.secondary.background,
+}));
 
 function CartItem({ item }) {
   const [{ cart }, dispatch] = useStateValue();
@@ -34,7 +39,7 @@ function CartItem({ item }) {
   };
 
   return (
-    <motion.div
+    <Container
       initial="initial"
       animate="in"
       exit="out"
@@ -84,7 +89,7 @@ function CartItem({ item }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </Container>
   );
 }
 
