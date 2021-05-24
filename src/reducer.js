@@ -6,7 +6,8 @@ export const initialState = {
   loadingBar: null,
   category: "all",
   fuse: null,
-  theme: null
+  theme: null,
+  isLoading: false,
 };
 
 const getCartTotal = (cart) =>
@@ -18,7 +19,6 @@ const getTotalItems = (cart) =>
   cart?.reduce((total, item) => item.quantity + total, 0);
 
 const reducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case "ADD_TO_CART": {
       const itemIndex = state.cart.findIndex(
@@ -133,6 +133,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         loadingBar: action.loadingBar,
+      };
+
+    case "IS_LOADING":
+      return {
+        ...state,
+        isLoading: action.isLoading,
       };
 
     case "SET_PRODUCTS":

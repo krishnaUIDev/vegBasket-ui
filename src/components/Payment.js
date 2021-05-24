@@ -173,7 +173,6 @@ function Payment() {
               .then((data) => {
                 const { metadata, payment_intent, amount_total } = data.data;
                 if (metadata.uid === signedIn.uid) {
-                  console.log(metadata);
                   setTimeout(() => {
                     updateDb(
                       signedIn,

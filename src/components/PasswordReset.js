@@ -31,7 +31,6 @@ function PasswordReset() {
     auth
       .sendPasswordResetEmail(email)
       .then((response) => {
-        console.log(response);
         setEmail("");
         setPassword("");
         setFormError("Check your mail for the password reset link.");
@@ -51,7 +50,6 @@ function PasswordReset() {
     auth
       .confirmPasswordReset(query.get("oobCode"), newPassword)
       .then((response) => {
-        console.log(response);
         setEmail("");
         setPassword("");
         setFormError("Success. Login to continue!");

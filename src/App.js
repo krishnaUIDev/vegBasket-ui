@@ -8,7 +8,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import Fuse from "fuse.js";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { useSelector } from "react-redux";
-
 import { themeDark } from "./theme/darkTheme";
 import { themeLight } from "./theme/lightTheme";
 import Sidebar from "./components/Sidebar/index";
@@ -92,6 +91,10 @@ function MainApp() {
 
   useEffect(() => {
     loadingBar.current.continuousStart();
+    dispatch({
+      type: "IS_LOADING",
+      isLoading: true,
+    });
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch({
@@ -125,6 +128,10 @@ function MainApp() {
       })
       .then(() => {
         loadingBar.current.complete();
+        dispatch({
+          type: "IS_LOADING",
+          isLoading: false,
+        });
       });
   }, [dispatch]);
 

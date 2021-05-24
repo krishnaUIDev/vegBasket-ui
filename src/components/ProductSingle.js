@@ -17,7 +17,6 @@ import ImageOptimizer from "../utility/ImageOptimizer";
 function ProductSingle() {
   const { id } = useParams();
   const location = useLocation();
-  console.log(location.state.product);
 
   const [productDetails, setProductDetails] = useState({});
 

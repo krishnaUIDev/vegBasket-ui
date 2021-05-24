@@ -36,7 +36,6 @@ function Login() {
           }
         }, 1000);
 
-        console.log(result);
         setSuccess(true);
         setFormError("Success! Redirecting...");
         setStatus(false);
@@ -55,7 +54,6 @@ function Login() {
       auth
         .applyActionCode(actionCode)
         .then((res) => {
-          console.log(res);
           setSuccess(true);
           setFormError(
             "Your email is verified successfully. Login again to complete the verification process."
@@ -109,7 +107,6 @@ function Login() {
             }
           }, 1000);
         }
-        console.log(response);
         setStatus(false);
       })
       .then(() => loadingBar.current.complete())

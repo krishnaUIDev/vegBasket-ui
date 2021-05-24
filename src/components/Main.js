@@ -4,15 +4,23 @@ import Product from "./Product";
 import { useStateValue } from "../StateProvider";
 
 function Main() {
-  const [{ products, category }] = useStateValue();
+  const [{ products, category, isLoading }] = useStateValue();
   return (
     <div className="main">
       <div className="products">
         {products?.map((product) =>
           category === "all" ? (
-            <Product id={product.id} item={product.data()} />
+            <Product
+              id={product.id}
+              item={product.data()}
+              isLoading={isLoading}
+            />
           ) : category === product.data().category ? (
-            <Product id={product.id} item={product.data()} />
+            <Product
+              id={product.id}
+              item={product.data()}
+              isLoading={isLoading}
+            />
           ) : null
         )}
       </div>
