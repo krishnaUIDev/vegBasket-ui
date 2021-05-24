@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
+import store from "./app/store";
+import { Provider } from "react-redux";
 
 import "./assets/bootstrap-reboot.css";
 import "./index.css";
@@ -12,34 +13,10 @@ import { StateProvider } from "./StateProvider";
 import reducer, { initialState } from "./reducer";
 import ScrollToTop from "./scrollToTop";
 
-const themeLight = createMuiTheme({
-  palette: {
-    type: "light",
-    primary: { main: "#373737", background: "" },
-    secondary: { main: "#f4511e" },
-    footer: {
-      background: "#f5f5f7",
-    },
-  },
-});
-
-const themeDark = createMuiTheme({
-  palette: {
-    type: "dark",
-    primary: { main: "#eeeeee", background: "#090c10" },
-    secondary: { main: "#f4511e", background: "#0d1117" },
-    footer: {
-      background: "#161b22",
-    },
-  },
-});
-
 const Main = () => {
-  let darkMode = false;
-  const test = darkMode ? themeDark : themeLight;
   return (
     <React.StrictMode>
-      <ThemeProvider theme={test}>
+      <Provider store={store}>
         <Router>
           <ScrollToTop />
           <StateProvider initialState={initialState} reducer={reducer}>
@@ -47,7 +24,7 @@ const Main = () => {
             <App />
           </StateProvider>
         </Router>
-      </ThemeProvider>
+      </Provider>
     </React.StrictMode>
   );
 };

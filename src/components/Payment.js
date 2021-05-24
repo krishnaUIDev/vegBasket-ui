@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Payment.css";
 import { useStateValue } from "../StateProvider";
 import { getCartTotal } from "../reducer";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useQuery, errorAnim } from "../util";
 import axios from "axios";
@@ -348,7 +348,7 @@ function Payment() {
               id="card"
               value="card"
               type="radio"
-              checked={method == "card"}
+              checked={method === "card"}
               onChange={(e) => changeMethod(e)}
             />
             <label for="card">Add a Debit/Credit Card</label>
@@ -360,7 +360,7 @@ function Payment() {
               id="cod"
               value="cod"
               type="radio"
-              checked={method == "cod"}
+              checked={method === "cod"}
               onChange={(e) => changeMethod(e)}
             />
             <label for="cod">Cash on Delivery</label>

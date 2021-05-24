@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import "./ProductSingle.css";
-import defaultImage from "../assets/default.jpg";
 import TextTruncate from "react-text-truncate";
 import Product from "./Product";
 import LabelImportantRoundedIcon from "@material-ui/icons/LabelImportantRounded";
@@ -20,7 +19,6 @@ function ProductSingle() {
   console.log(location.state.product);
 
   const [productDetails, setProductDetails] = useState({});
-  const [features, setFeatures] = useState([]);
 
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
@@ -176,7 +174,7 @@ function ProductSingle() {
           {suggestions
             ?.slice(0, 3)
             .map((product) =>
-              product.id != id ? (
+              product.id !== id ? (
                 <Product id={product.id} item={product.data()} />
               ) : null
             )}

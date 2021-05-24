@@ -1,12 +1,18 @@
 import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useHistory, useLocation } from "react-router-dom";
+import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import NightsStayOutlinedIcon from "@material-ui/icons/NightsStayOutlined";
+import { IconButton } from "@material-ui/core";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme, getSelectedTheme } from "../features/userSlice";
+
 import "./Header.css";
 import amazonLogo from "../assets/logo.svg";
-import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import DropDown from "./DropDown";
 import "./SearchResults.css";
-import { useHistory, useLocation } from "react-router-dom";
+import DropDown from "./DropDown";
 import { useStateValue } from "../StateProvider";
-import { motion } from "framer-motion";
 
 const languages = [
   "English",
@@ -23,12 +29,14 @@ const languages = [
 ];
 
 function Header() {
+  const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
   const queryRef = useRef(null);
   const [results, setResults] = useState(null);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [{ fuse }] = useStateValue();
+  const selectedTheme = useSelector(getSelectedTheme);
 
   const handleChange = (e) => {
     if (queryRef.current.value.length > 0) {
@@ -38,6 +46,11 @@ function Header() {
       setResults(null);
       setResultsOpen(false);
     }
+  };
+
+  const handleTheme = () => {
+    dispatch(setTheme(!selectedTheme));
+    localStorage.setItem("theme", !selectedTheme);
   };
 
   return (
@@ -88,6 +101,11 @@ function Header() {
             ))}
           </motion.div>
         )}
+        <div>
+          <IconButton onClick={handleTheme}>
+            {!selectedTheme ? <NightsStayOutlinedIcon /> : <WbSunnyIcon />}
+          </IconButton>
+        </div>
         <DropDown
           className="header__langDropDown"
           items={languages}

@@ -6,7 +6,11 @@ import LoadingBar from "react-top-loading-bar";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Fuse from "fuse.js";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { useSelector } from "react-redux";
 
+import { themeDark } from "./theme/darkTheme";
+import { themeLight } from "./theme/lightTheme";
 import Sidebar from "./components/Sidebar/index";
 import { shuffleArray } from "./util";
 import Header from "./components/Header";
@@ -24,6 +28,7 @@ import UserPage from "./views/UserPage";
 import "./App.css";
 import db, { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { getSelectedTheme } from "./features/userSlice";
 
 const promise = loadStripe(
   "pk_test_51HdsPRE4K4vYNE8J6n2SZ7Q68Z8mqdHJROiHxnm7U5yeTk8oBed7LF3IqSZGSlr1vso40SYgMc3NWeYCvuhKfv6H00pu5ZkJi3"
@@ -45,6 +50,16 @@ const Container = styled("div")(({ theme }) => ({
 }));
 
 function App() {
+  const slectedVal = useSelector(getSelectedTheme);
+  const theme = slectedVal ? themeDark : themeLight;
+  return (
+    <ThemeProvider theme={theme}>
+      <MainApp />
+    </ThemeProvider>
+  );
+}
+
+function MainApp() {
   const location = useLocation();
   const [{ user, cart }, dispatch] = useStateValue();
   const loadingBar = useRef(null);
