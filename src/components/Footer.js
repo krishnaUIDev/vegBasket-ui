@@ -81,7 +81,7 @@ function Footer() {
           ))}
         </div>
         <div className="footer__bottom">
-          <img src={amazonLogo} className="footer__logo" />
+          <img loading="lazy" src={amazonLogo} className="footer__logo" />
           <span className="footer__copy">
             &copy; 2020 | Developed by <a href="#">Krishna</a>
           </span>

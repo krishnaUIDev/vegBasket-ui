@@ -454,6 +454,7 @@ function Payment() {
               >
                 <span>Pay via</span>
                 <img
+                  loading="lazy"
                   src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg"
                   alt="Stripe"
                 />
@@ -468,7 +469,7 @@ function Payment() {
             variants={errorAnim}
             className="payment__summary"
           >
-            <img src={successImg} />
+            <img loading="lazy" src={successImg} />
             <h5>Yay, it's done!</h5>
             {orderId && <p>Order ID: {orderId}</p>}
             <p>

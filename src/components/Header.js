@@ -50,7 +50,7 @@ function Header() {
 
   const handleTheme = () => {
     dispatch(setTheme(!selectedTheme));
-    localStorage.setItem("theme", !selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
   };
 
   return (
@@ -89,7 +89,7 @@ function Header() {
                 className="result"
               >
                 <div className="result__image">
-                  <img src={result.item.imgUrl} />
+                  <img loading="lazy" src={result.item.imgUrl} />
                 </div>
                 <span>
                   <p className="result__title">{result.item.name}</p>
@@ -111,7 +111,7 @@ function Header() {
           items={languages}
           defaultItem={languages[0]}
         />
-        <img src={amazonLogo} className="header__logo" />
+        <img loading="lazy" src={amazonLogo} className="header__logo" />
       </div>
     </div>
   );

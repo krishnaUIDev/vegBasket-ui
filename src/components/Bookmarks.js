@@ -20,7 +20,7 @@ function Bookmarks() {
       ) : (
         <div className="cart__inner bookmark__inner">
           <div className="cart__items">
-            <img src={emptyBookmarks} className="cart__empty" />
+            <img loading="lazy" src={emptyBookmarks} className="cart__empty" />
           </div>
           <div className="cart__checkout">
             <h4>It's empty here.</h4>

@@ -252,7 +252,10 @@ function Login() {
             disabled={status}
             className="button buttonSecondary outline"
           >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+            <img
+              loading="lazy"
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            />
             <span>Sign in with Google</span>
           </button>
         </div>

@@ -52,7 +52,7 @@ function Profile() {
   return (
     <div className="profile">
       <div className="profile__header">
-        <img className="profile__avatar" src={user?.photoURL} />
+        <img loading="lazy" className="profile__avatar" src={user?.photoURL} />
         <span>
           <h3>Hi, {user?.displayName}</h3>
           <p style={{ maxWidth: "480px", marginBottom: "2rem", opacity: 0.5 }}>

@@ -49,7 +49,7 @@ function CartItem({ item }) {
       id={item.id}
     >
       <motion.div layoutId={item.id} className="cartItem__image">
-        <img src={item.imgUrl} />
+        <img loading="lazy" src={item.imgUrl} />
       </motion.div>
       <div className="cartItem__details">
         <Link

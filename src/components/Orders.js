@@ -51,7 +51,7 @@ function Orders() {
               {order.items.map((item) => (
                 <div className="order__item">
                   <div className="order__image">
-                    <img src={item.imgUrl} />
+                    <img loading="lazy" src={item.imgUrl} />
                   </div>
                   <span className="order__name">{item.name}</span>
                   <small className="order__quantity">x{item.quantity}</small>

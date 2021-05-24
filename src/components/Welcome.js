@@ -72,7 +72,7 @@ function Welcome() {
   return (
     <div className="welcome">
       <div className="welcome__header">
-        <img className="welcome__avatar" src={user?.photoURL} />
+        <img loading="lazy" className="welcome__avatar" src={user?.photoURL} />
         <span>
           <h3>
             {location.state?.update ? <>Before you continue</> : <>Welcome</>},{" "}

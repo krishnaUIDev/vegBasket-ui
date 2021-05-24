@@ -48,7 +48,12 @@ function Sidebar() {
 
   return (
     <Container className={`sidebar ${sidebarActive ? "active" : ""}`}>
-      <img src={amazonIcon} className="sidebar__icon" onClick={toggleSidebar} />
+      <img
+        loading="lazy"
+        src={amazonIcon}
+        className="sidebar__icon"
+        onClick={toggleSidebar}
+      />
       <div className="sidebar__menu">
         <NavLink
           to="/"
@@ -108,6 +113,7 @@ function Sidebar() {
       </div>
       {user ? (
         <img
+          loading="lazy"
           src={user?.photoURL || defaultImage}
           onClick={() => {
             history.push("/profile");

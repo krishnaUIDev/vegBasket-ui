@@ -12,6 +12,7 @@ import { useStateValue } from "../StateProvider";
 import db from "../firebase";
 import { motion } from "framer-motion";
 import { shuffleArray } from "../util";
+import ImageOptimizer from "../utility/ImageOptimizer";
 
 function ProductSingle() {
   const { id } = useParams();
@@ -87,7 +88,10 @@ function ProductSingle() {
     <div className="productSingle">
       <div className="productSingle__inner">
         <motion.div layoutId={id} className="productSingle__image">
-          <img src={productDetails?.imgUrl || location.state.product?.imgUrl} />
+          <img
+            src={productDetails?.imgUrl || location.state.product?.imgUrl}
+            loading="lazy"
+          />
         </motion.div>
         <div className="productSingle__details">
           <TextTruncate

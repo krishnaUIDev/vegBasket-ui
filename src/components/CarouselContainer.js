@@ -24,7 +24,7 @@ function CarouselContainer() {
     >
       {carouselImages.map((carouselImage) => (
         <div>
-          <img src={carouselImage} alt="carousel" />
+          <img loading="lazy" src={carouselImage} alt="carousel" />
         </div>
       ))}
     </Carousel>

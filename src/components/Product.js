@@ -42,7 +42,7 @@ function Product({ item, id }) {
     >
       <motion.div layoutId={id} className="product__image">
         {item.discount && <span className="banner">Offer!</span>}
-        <img src={item.imgUrl || defaultImage} />
+        <img loading="lazy" src={item.imgUrl || defaultImage} />
       </motion.div>
       <div className="product__details">
         <span className="product__category">{item.category}</span>

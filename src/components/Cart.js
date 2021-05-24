@@ -62,7 +62,7 @@ function Cart() {
       ) : (
         <div style={{ paddingTop: "1rem" }} className="cart__inner">
           <div className="cart__items">
-            <img src={emptyCart} className="cart__empty" />
+            <img loading="lazy" src={emptyCart} className="cart__empty" />
           </div>
           <div className="cart__checkout">
             <h4>Your cart feels lonely.</h4>
